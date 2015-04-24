@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org">
+<head>
+	<!-- Use the 'title' property to render a page title  -->
+	<title><%= title %></title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+		<!-- The scripts needed for google maps-->
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!-- Wrap all page content here -->
+<div id="wrap">
+
+<!-- Fixed navbar -->
+<div class="navbar navbar-custom navbar-inverse navbar-fixed-top" id="nav">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse nav-justified">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a ui-sref="signon">Sign On</a></li>
+          <li><a ui-sref="map-footprint">+ Listing</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Currency<b class="caret"></b>&nbsp;&nbsp;<span class="flag-icon flag-icon-sg"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#"><span class="flag-icon flag-icon-sg"></span >&nbsp;&nbsp;SGD</a></li>
+              <li><a href="#"><span class="flag-icon flag-icon-jp"></span>&nbsp;&nbsp;JPY</a></li>
+              <li><a href="#"><span class="flag-icon flag-icon-cn"></span>&nbsp;&nbsp;CNY</a></li>
+              <li><a href="#"><span class="flag-icon flag-icon-au"></span>&nbsp;&nbsp;AUD</a></li>
+              <li><a href="#"><span class="flag-icon flag-icon-gb"></span>&nbsp;&nbsp;GBP</a></li>
+              <li><a href="#"><span class="flag-icon flag-icon-us"></span>&nbsp;&nbsp;USD</a></li>
+          </ul>
+          </li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div><!--/.container -->
+</div><!--/.navbar -->
+
+	<!-- Render AngularJS views  -->
+	<div ui-view></div>
+
+<!-- Social Media Footer -->
+<div class="container">
+        <div class="col-sm-8 col-sm-offset-2 text-center">
+          <div class="text-center">
+            <a class="btn btn-social-icon btn-facebook"><i class="fa fa-facebook fa-2x"></i></a>
+            <a class="btn btn-social-icon btn-flickr"><i class="fa fa-flickr fa-2x"></i></a>
+            <a class="btn btn-social-icon btn-google-plus"><i class="fa fa-google-plus fa-2x"></i></a>
+            <a class="btn btn-social-icon btn-instagram"><i class="fa fa-instagram fa-2x"></i></a>
+            <a class="btn btn-social-icon btn-pinterest"><i class="fa fa-pinterest fa-2x"></i></a>
+            <a class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter fa-2x"></i></a>
+          </div>
+          <hr>
+      </div>
+</div> <!-- Social Media Footer -->
+
+<!-- Footer -->
+<div id="footer">
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+            <ul class="nav nav-justified footer-links">
+                <li class="footer-links"><a href="/">&copy; 2015 Zestour Pte. Ltd.</a></li>
+                <li class="footer-links"><a href="#">Terms &amp; Conditions</a></li>
+                <li class="footer-links"><a href="#">Security &amp; Privacy</a></li>
+                <li class="footer-links"><a href="#">FAQ</a></li>
+                <li class="footer-links"><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+</div><!-- Footer -->
+
+<ul class="nav pull-right scroll-top">
+  <li><a href="#" title="Scroll to top"><i class="glyphicon glyphicon-chevron-up"></i></a></li>
+</ul>
+
+</div><!-- PageWraper -->
+
+	<!-- Render the user object -->
+	<script type="text/javascript">
+		window.user = <%- user || 'null' %>;
+	</script>
+
+	<!-- Load local libraries -->
+	<script type="text/javascript" src="/lib/angular/angular.js"></script>
+	<script type="text/javascript" src="/lib/angular-route/angular-route.js"></script>
+	<script type="text/javascript" src="/lib/angular-ui-router/release/angular-ui-router.js"></script>
+	<script type="text/javascript" src="/lib/angular-resource/angular-resource.js"></script>
+	<script type="text/javascript" src="/lib/angular-google-maps/dist/angular-google-maps.js"></script>
+	<script type="text/javascript" src="/lib/lodash/dist/lodash.compat.js"></script>
+		    <!-- CSS libraries -->
+    <link rel="stylesheet" href="lib/font-awesome-4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="lib/bootstrap-3.3.4/css/bootstrap.min.css">
+        <!-- CSS code -->
+    <link href="lib/css/flag-icon.min.css" rel="stylesheet">
+    <link href="lib/css/styles.css" rel="stylesheet">
+    	<!-- Script references-->
+    <script src="lib/jquery-2.0.2/jquery.min.js"></script>
+    <script src="lib/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script src="lib/js/scripts.js"></script>
+
+    <!-- Load the home module -->
+	<script type="text/javascript" src="/home/home.client.module.js"></script>
+	<script type="text/javascript" src="/home/controllers/home.client.controller.js"></script>
+	<script type="text/javascript" src="/home/config/home.client.routes.js"></script>
+
+	<!-- Load the articles module -->
+	<script type="text/javascript" src="/articles/articles.client.module.js"></script>
+	<script type="text/javascript" src="/articles/controllers/articles.client.controller.js"></script>
+	<script type="text/javascript" src="/articles/services/articles.client.service.js"></script>
+	<script type="text/javascript" src="/articles/config/articles.client.routes.js"></script>
+
+	<!-- Load the footprints module -->
+	<script type="text/javascript" src="/footprints/footprints.client.module.js"></script>
+	<script type="text/javascript" src="/footprints/controllers/footprints.client.controller.js"></script>
+	<script type="text/javascript" src="/footprints/services/footprints.client.service.js"></script>
+	<script type="text/javascript" src="/footprints/config/footprints.client.routes.js"></script>
+
+  <script type="text/javascript" src="/footprints/js/ngAutocomplete.js"></script>
+
+    <!-- Load the meadis module -->
+    <script type="text/javascript" src="/medias/medias.client.module.js"></script>
+    <script type="text/javascript" src="/medias/controllers/medias.client.controller.js"></script>
+    <script type="text/javascript" src="/medias/services/medias.client.service.js"></script>
+    <script type="text/javascript" src="/medias/config/medias.client.routes.js"></script>
+
+	<!-- Load the users module -->
+	<script type="text/javascript" src="/users/users.client.module.js"></script>
+  <script type="text/javascript" src="/users/controllers/users.client.controller.js"></script>
+  <script type="text/javascript" src="/users/config/users.client.routes.js"></script>
+  <script type="text/javascript" src="/users/services/users.client.service.js"></script>
+	<script type="text/javascript" src="/users/services/authentication.client.service.js"></script>
+
+	<!-- Bootstrap AngularJS application -->
+	<script type="text/javascript" src="/application.js"></script>
+</body>
+</html>

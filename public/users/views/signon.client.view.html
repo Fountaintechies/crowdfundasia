@@ -1,0 +1,100 @@
+<!-- The home view -->
+<section data-ng-controller="UsersController">
+
+<div class="container">
+
+ <form data-ng-submit="signup()" novalidate class="form-horizontal col-sm-6" role="form">
+ <h2>Join Zestour!</h2>
+   <!-- The error message element -->
+  <div data-ng-show="errorSignup">
+    <strong data-ng-bind="errorSignup"></strong>
+  </div> 
+  <hr>
+    <div class="form-group">
+    <label class="control-label col-sm-3" for="firstName">First Name:</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" data-ng-model="firstName" id="firstName" placeholder="Enter first name">
+    </div>
+  </div>
+
+    <div class="form-group">
+    <label class="control-label col-sm-3" for="lastName">Last Name:</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" data-ng-model="lastName" id="lastName" placeholder="Enter last name">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-3" for="email">Email:</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" data-ng-model="email" id="email" placeholder="Enter email">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-3" for="username">Username:</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" data-ng-model="username" id="Username" placeholder="Enter username">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-3" for="password">Password:</label>
+    <div class="col-sm-6">
+      <input type="password" class="form-control" data-ng-model="password" id="password" placeholder="Enter password">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-6">
+      <button type="submit" class="btn btn-default">Sign Up</button>
+    </div>
+  </div>
+</form>
+
+
+ <form data-ng-submit="signin()" novalidate class="form-horizontal col-sm-6" role="form">
+ <h2>Already a Member?</h2>
+   <div data-ng-show="errorSignin">
+    <strong data-ng-bind="errorSignin"></strong>
+  </div> 
+ <hr>
+  <div class="form-group">
+    <label class="control-label col-sm-3" for="username">Username:</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="username" placeholder="Enter username">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-3" for="password">Password:</label>
+    <div class="col-sm-6">
+      <input type="password" class="form-control" id="password" placeholder="Enter password">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-6">
+      <button type="submit" class="btn btn-default">Sign In</button>
+    </div>
+  </div>
+</form>
+
+ <form data-ng-submit="signout()" novalidate class="form-horizontal col-sm-6" role="form">
+ <h2>Sign Out</h2>
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-6">
+      <button type="submit" class="btn btn-default">Sign Out</button>
+    </div>
+  </div>
+</form>
+
+</div>
+</section>
+
+<!--   <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <div class="checkbox">
+        <label><input type="checkbox"> Remember me</label>
+      </div>
+    </div>
+  </div> -->

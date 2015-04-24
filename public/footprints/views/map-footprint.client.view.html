@@ -1,0 +1,7 @@
+<!-- The create footprint view -->
+
+<div data-ng-controller="FootprintsController">
+<h1>Here is the Map</h1>
+<input type="text"  ng-autocomplete ng-model="autocomplete" options="options" details="details"/>
+<ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
+</div>

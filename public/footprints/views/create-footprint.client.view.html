@@ -1,0 +1,56 @@
+<!-- The create footprint view -->
+<section data-ng-controller="FootprintsController">
+
+<!-- The scripts needed for this view onload="initialize()-->
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+        <script type="text/javascript" src="/footprints/js/map.js"></script>
+        <link rel="stylesheet" href="footprints/css/jquery-ui-1.8.18.custom.css"/>
+
+	<h1>New Footprint</h1>
+	<!-- The new footprint form -->
+	<form data-ng-submit="create()" novalidate>
+		<div>
+			<label for="address">Address</label>
+			<div>
+				<input type="text" data-ng-model="address" id="address" placeholder="Address" required>
+			</div>
+		</div>
+		<div>
+			<label for="longitude">Longitude</label>
+			<div>
+				<input type="text" data-ng-model="longitude" id="longitude" placeholder="Longitude" required>
+			</div>
+		</div>
+		<div>
+			<label for="latitude">Latitude</label>
+			<div>
+				<input type="text" data-ng-model="latitude" id="latitude" placeholder="Latitude" required>
+			</div>
+		</div>
+		<div>
+			<label for="category">Category</label>
+			<div>
+				<input type="text" data-ng-model="category" id="category" placeholder="Category" required>
+			</div>
+		</div>
+
+		<div>
+			<label for="category">Place</label>
+			<div>
+				<input type="text" id="autocomplete" placeholder="Place" required>
+			</div>
+		</div>
+
+        <div id="map_canvas" style="width:500px;height:500px;border: 1px solid black;"></div>
+        <div id="value"></div>
+
+		<div>
+			<input type="submit">
+		</div>
+
+		<!-- The error message element -->
+		<div data-ng-show="error">
+			<strong data-ng-bind="error"></strong>
+		</div>
+	</form>
+</section>

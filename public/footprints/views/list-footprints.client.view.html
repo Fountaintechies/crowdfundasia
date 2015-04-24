@@ -1,0 +1,19 @@
+<!-- The list footprints view -->
+<section data-ng-controller="FootprintsController" data-ng-init="find()">
+	<h1>Footprints</h1>
+	<ul>
+		<!-- The list of footprints -->
+		<li data-ng-repeat="footprint in footprints">
+			<a data-ui-sref="#!/footprints/{{footprint._id}}" data-ng-bind="footprint.address"></a>
+			<br>
+			<small data-ng-bind="footprint.created | date:'medium'"></small>
+			<small>/</small>
+			<small data-ng-bind="footprint.creator.fullName"></small>
+			<p data-ng-bind="footprint.category"></p>
+		</li>
+	</ul>
+	<!-- If there are no footprints in the list, suggest the user's create a new footprint -->
+	<div data-ng-hide="!footprints || footprints.length">
+		No footprints yet, why don't you <a href="/#!/footprints/create">create one</a>?
+	</div>
+</section>

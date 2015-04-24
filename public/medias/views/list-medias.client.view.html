@@ -1,0 +1,19 @@
+<!-- The list medias view -->
+<section data-ng-controller="MediasController" data-ng-init="find()">
+	<h1>Medias</h1>
+	<ul>
+		<!-- The list of media -->
+		<li data-ng-repeat="media in medias">
+			<a ui-sref="view-media({mediaId: media._id})" data-ng-bind="media.title"></a>
+			<br>
+			<small data-ng-bind="media.created | date:'medium'"></small>
+			<small>/</small>
+			<small data-ng-bind="media.creator.fullName"></small>
+			<p data-ng-bind="media.content"></p>
+		</li>
+	</ul>
+	<!-- If there are no medias in the list, suggest the user's create a new media -->
+	<div data-ng-hide="!medias || medias.length">
+		No medias yet, why don't you <a ui-sref="create-media">create one</a>?
+	</div>
+</section>
